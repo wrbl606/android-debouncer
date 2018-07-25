@@ -1,5 +1,18 @@
 apply plugin: 'com.android.library'
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
 android {
     compileSdkVersion 21
     buildToolsVersion '21.1.2'
@@ -62,5 +75,110 @@ robolectric {
     // use afterTest to listen to the test execution results
     afterTest { descriptor, result ->
         println "Executing test for ${descriptor.name} with result: ${result.resultType}"
+    }
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'android-debouncer'
+
+    publishedGroupId = 'com.github.wrbl606'
+    libraryName = 'AndroidDebouncer'
+    artifact = 'android-debouncer'
+
+    libraryDescription = 'Android debouncer for UI Thread.'
+
+    siteUrl = 'https://github.com/wrbl606/android-debouncer'
+    gitUrl = 'https://github.com/wrbl606/android-debouncer.git'
+
+    libraryVersion = '1.0'
+
+    developerId = 'wrbl606'
+    developerName = 'Marcin Wróblewski'
+    developerEmail = 'marcinwroblewski@outlook.com'
+
+    licenseName = 'MIT'
+    licenseUrl = 'https://gist.github.com/mnem-gists/2046999'
+    allLicenses = ["MIT"]
+}
+
+group = publishedGroupId
+version = libraryVersion
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            packaging 'aar'
+            groupId publishedGroupId
+            artifactId artifact
+
+            name libraryName
+            description libraryDescription
+            url siteUrl
+
+            licenses {
+                license {
+                    name licenseName
+                    url licenseUrl
+                }
+            }
+            developers {
+                developer {
+                    id developerId
+                    name developerName
+                    email developerEmail
+                }
+            }
+            scm {
+                connection gitUrl
+                developerConnection gitUrl
+                url siteUrl
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        dryRun = false
+        publish = true
+        override = false
+        publicDownloadNumbers = true
+        version {
+            desc = libraryDescription
+        }
     }
 }

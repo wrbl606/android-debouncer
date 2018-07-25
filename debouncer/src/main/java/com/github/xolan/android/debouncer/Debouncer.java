@@ -40,7 +40,6 @@ public class Debouncer {
     public static boolean debounce(final String identifier, final Runnable r, final int millis) {
         if(getInstance().runnables.containsKey(identifier)) {
             // debounce
-            Log.d(TAG, String.format("Debouncing runnable with identifier \"%s\"", identifier));
             Runnable old = getInstance().runnables.get(identifier);
             getInstance().handler.removeCallbacks(old);
         }
@@ -56,12 +55,10 @@ public class Debouncer {
             public void run() {
                 handler.post(r);
                 runnables.remove(identifier);
-                Log.d(TAG, String.format("Runnable with name \"%s\" posted and cannot be debounced from now on", identifier));
             }
         };
         runnables.put(identifier, chained);
         handler.postDelayed(chained, millis);
-        Log.d(TAG, String.format("Runnable with name \"%s\" scheduled in %s milliseconds", identifier, millis));
     }
 
 }

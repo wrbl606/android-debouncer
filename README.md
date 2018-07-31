@@ -2,6 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/wrbl606/android-debouncer/master/LICENSE)
 [![Version](https://api.bintray.com/packages/wrbl606/maven/debouncer/images/download.svg) ](https://bintray.com/wrbl606/maven/android-debouncer/_latestVersion)
+[![Minimum API](https://img.shields.io/badge/API-17%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=17)
 
 Clean and simple solution for debouncing UI tasks (or any other).
 

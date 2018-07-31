@@ -51,18 +51,18 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'android-debouncer'
+    bintrayName = 'debouncer'
 
     publishedGroupId = 'com.github.wrbl606'
-    libraryName = 'AndroidDebouncer'
-    artifact = 'android-debouncer'
+    libraryName = 'debouncer'
+    artifact = 'debouncer'
 
     libraryDescription = 'Android debouncer for UI Thread.'
 
     siteUrl = 'https://github.com/wrbl606/android-debouncer'
     gitUrl = 'https://github.com/wrbl606/android-debouncer.git'
 
-    libraryVersion = '1.0.2'
+    libraryVersion = '1.0'
 
     developerId = 'wrbl606'
     developerName = 'Marcin Wróblewski'

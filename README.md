@@ -1,12 +1,19 @@
 # Android debouncer
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/xolan/android-debouncer/master/LICENSE)
-[![Master](https://img.shields.io/travis/xolan/android-debouncer/master.svg)](https://travis-ci.org/xolan/android-debouncer.svg?branch=master)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/wrbl606/android-debouncer/master/LICENSE)
+[![Version](https://api.bintray.com/packages/wrbl606/maven/debouncer/images/download.svg) ](https://bintray.com/wrbl606/maven/android-debouncer/_latestVersion)
 
 Clean and simple solution for debouncing UI tasks (or any other).
 
 * Min SDK: 17 (JELLY_BEAN_MR1)
 * Footprint: Nearly none ♥
+
+## Implementation
+Insert this into your `build.gradle` file:
+```gradle
+    implementation 'com.github.wrbl606:android-debouncer:1.0'
+```
+and you are ready to go.
 
 ## Usage
 

@@ -1,7 +1,7 @@
 # Android debouncer
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/wrbl606/android-debouncer/master/LICENSE)
-[![Version](https://api.bintray.com/packages/wrbl606/maven/android-debouncer/images/download.svg) ](https://bintray.com/wrbl606/maven/android-debouncer/_latestVersion)
+[![Version](https://api.bintray.com/packages/wrbl606/maven/debouncer/images/download.svg) ](https://bintray.com/wrbl606/maven/android-debouncer/_latestVersion)
 
 Clean and simple solution for debouncing UI tasks (or any other).
 
@@ -11,7 +11,7 @@ Clean and simple solution for debouncing UI tasks (or any other).
 ## Implementation
 Insert this into your `build.gradle` file:
 ```gradle
-    implementation 'com.github.wrbl606:android-debouncer:1.0.2'
+    implementation 'com.github.wrbl606:android-debouncer:1.0'
 ```
 and you are ready to go.
 

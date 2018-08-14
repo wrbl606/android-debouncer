@@ -12,7 +12,7 @@ Clean and simple solution for debouncing UI tasks (or any other).
 ## Implementation
 Insert this into your `build.gradle` file:
 ```gradle
-    implementation 'com.github.wrbl606:android-debouncer:1.0'
+    implementation 'com.github.wrbl606:debouncer:1.0'
 ```
 and you are ready to go.
 
